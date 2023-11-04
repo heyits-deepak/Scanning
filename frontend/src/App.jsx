@@ -30,7 +30,12 @@ function App() {
   return (
     <div className="body">
       <div className="appStyle">
-        <h1>URL Security Assessment</h1>
+        <h1>
+          <i className="fa-solid fa-skull fa-beat-fade"></i>
+          <span className="blink">URL Security Assessment    </span>
+          <i className="fa-solid fa-skull fa-beat-fade"></i>
+        </h1>
+
         <hr />
         <form className="formStyle" onSubmit={handleSubmit}>
           <div className="inp">
@@ -51,23 +56,31 @@ function App() {
             </button>
           </div>
         </form>
-        {loading ? (
-          <span className="loader"></span>
-        ) : null}
+        {loading ? <span className="loader"></span> : null}
         {result && (
           <div className="resultStyle">
-            <div className="url">{url}
-            {/* <div className="url-img">
+            <div className="url">
+              {url}
+              {/* <div className="url-img">
             <img src="../images/" alt="" srcset="" />
             </div>
              */}
             </div>
-            <div className="vul"><ul>
-              {result.assessment.vulnerabilities.map((vulnerability, index) => (
-                <li key={index}>{vulnerability}</li>
-              ))}
-            </ul></div>
-            <div className="time">time in loading is 2sec</div>
+            <div className="vul">
+              <ul>
+                {result.assessment.vulnerabilities.map(
+                  (vulnerability, index) => (
+                    <li key={index}>{vulnerability}</li>
+                  )
+                )}
+              </ul>
+            </div>
+            <div className="time">
+              <h1>TIME</h1>
+              <p>
+                <span>2</span> Sec
+              </p>
+            </div>
           </div>
         )}
       </div>

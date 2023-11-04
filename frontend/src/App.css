@@ -10,10 +10,21 @@
     color: #fff;
     padding: 20px;
 }
-.appStyle h1{
+.appStyle h1 i{
+    color: rgb(98, 207, 98);
+    -webkit-text-stroke-width: 4px;
+  -webkit-text-stroke-color: rgb(8, 8, 8);
+  letter-spacing: 5px;
+  font-size: 50px;
+  font-weight: bold;
+  margin: 20px 40px;
+  letter-spacing: 20px;  
+
+}
+.appStyle h1 span{
     font-family: 'Poppins', sans-serif;
     letter-spacing: 2px;
-    animation: blink 1.5s infinite;
+    animation: blink 2s infinite;
   margin: 20px auto;
   font-family: 'Ubuntu', sans-serif;
   font-size: 70px;
@@ -103,11 +114,51 @@ hr{
     font-family: 'roboto';
     font-size: 3rem;
     letter-spacing: 3px;
-    color: green;
-    -webkit-text-stroke-width: 3px;
-  -webkit-text-stroke-color: white;
+    color: black;
+    -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: rgb(47, 255, 89);
+  
 }
-
+.vul ul{
+    list-style: none;
+    margin-left: -120px;
+}
+.vul ul li{
+    font-size: 2rem;
+    font-family: cursive;
+    letter-spacing: 3px;
+    color: white;
+    font-weight: bold;
+    -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: red;
+}
+.time h1{
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 2px;
+    animation: blink 2s infinite;
+  margin: 20px auto;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 70px;
+  font-weight: bold;
+  /* color: black; */
+  text-align: center;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: red;
+  letter-spacing: 5px;
+}
+.time p{
+    font-family: 'pacifico';
+    font-size: 2rem;
+    letter-spacing: 3px;
+    color: #FFF0CE;
+}
+.time p span{
+    font-size: 4rem;
+    font-family: 'roboto';
+    color: yellow;
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: red;
+}
 .spinnerStyle {
     border: 4px solid rgba(0, 0, 0, 0.3);
     border-top: 4px solid #2196F3;

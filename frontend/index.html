@@ -18,7 +18,8 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Indie+Flower&family=Lobster&family=Pacifico&family=Poppins&family=Roboto&family=Satisfy&display=swap"
       rel="stylesheet"
     />
-    <title>SECUcheck</title>
+    <title>URL</title>
+    <link rel="icon" href="./images/hacker-removebg-preview.png" type="image/png">
     <style>
       body {
         margin: 0;
@@ -38,6 +39,24 @@
         object-fit: cover; /* Maintain aspect ratio and cover the entire viewport */
         z-index: -1; /* Place the video behind the content */
     }
+    .back-img{
+      z-index: -1;
+      position: absolute;
+      opacity: 0.8;
+      top: 55%;
+      left: 8%;
+      white-space: nowrap;
+      animation: moveLeftRight 6s linear infinite;
+      overflow: hidden;
+    }
+    @keyframes moveLeftRight {
+      0%, 100% {
+        transform: translateX(-50%);
+      }
+      50% {
+        transform: translateX(550%);
+      }
+    }
     </style>
   </head>
 
@@ -46,6 +65,7 @@
       <source src="./video/8.mp4" type="video/mp4" />
       <!-- Add additional source elements for other video formats if needed -->
     </video>
+    <img src="./images/sk-removebg-preview.png" alt="" srcset="" class="back-img">
     <div id="root">
       <!-- Your existing content here -->
     </div>
