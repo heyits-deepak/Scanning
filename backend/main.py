@@ -7,16 +7,17 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Allow requests from your React frontend3
+# Allow requests from yopytur React frontend3
 origins = ["http://localhost:5173"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  # Allow requests from all origins (for testing)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 
 # Define a function to check for common vulnerabilities and security aspects
