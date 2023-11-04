@@ -58,7 +58,7 @@ function App() {
         ) : null}
         {result && (
           <div className="resultStyle">
-            <h2>Assesst Result for {url}</h2>
+            <h2>a Result for {url}</h2>
             <ul>
               {result.assessment.vulnerabilities.map((vulnerability, index) => (
                 <li key={index}>{vulnerability}</li>
