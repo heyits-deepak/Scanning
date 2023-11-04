@@ -18,24 +18,36 @@
       href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Indie+Flower&family=Lobster&family=Pacifico&family=Poppins&family=Roboto&family=Satisfy&display=swap"
       rel="stylesheet"
     />
-    <title>Vite + React</title>
+    <title>SECUcheck</title>
     <style>
       body {
-        margin: 0px;
-        padding: 0px;
-        background-image: url("./images/pexels-johannes-plenio-2080960.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-attachment: fixed;
+        margin: 0;
+        padding: 0;
+        background-color: transparent; /* Remove background image */
         height: 100vh;
         width: 100%;
+        position: relative;
+      }
+
+      video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        z-index: -1; /* Place the video behind the content */
       }
     </style>
   </head>
 
   <body>
-    <div id="root"></div>
+    <video autoplay loop muted playsinline>
+      <source src="./video/4.mp4" type="video/mp4" />
+      <!-- Add additional source elements for other video formats if needed -->
+    </video>
+    <div id="root">
+      <!-- Your existing content here -->
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
