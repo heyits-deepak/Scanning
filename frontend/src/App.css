@@ -51,18 +51,23 @@ hr{
     letter-spacing: 2px;
     padding: 20px;
     font-size: 16px;
-    border: 2px solid red;
+    border: 5px solid #9ccc9c;
     border-radius: 30px;
     margin-bottom: 10px;
-    background-color: black;
+    background-color: transparent;
     font-family: cursive;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin: 50px;
-    color: white;
+    color: whitesmoke;
     
     /* box-shadow: 3px 0px 7px rgba(171, 157, 157, 0.8), -3px 0px 7px rgba(27, 26, 25, 0.8), 0px 4px 7px rgba(81,67,21,0.8); */
 }
-
+.inputStyle:focus{
+    border: 5px solid #9ccc9c;
+}
+.inputStyle::placeholder{
+    color: 	whitesmoke;
+}
 .inp{
     display: flex;
 
