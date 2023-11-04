@@ -94,15 +94,18 @@ hr{
 }
 
 .resultStyle {
-    text-align: left;
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 2px solid #555;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    color: #333;
+ display: flex;
+ justify-content: space-around;
+ align-items: center;   
+}
+.url{
+    text-transform: capitalize;
+    font-family: 'roboto';
+    font-size: 3rem;
+    letter-spacing: 3px;
+    color: green;
+    -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: white;
 }
 
 .spinnerStyle {
@@ -112,8 +115,81 @@ hr{
     width: 30px;
     height: 30px;
     animation: spin 1s linear infinite;
-    margin: 0 auto;
+    
 }
 
 
 
+.loader {
+    transform: rotateZ(45deg);
+    perspective: 1000px;
+    border-radius: 50%;
+    width: 48px;
+    margin: 0 auto;
+    height: 48px;
+    color: whitesmoke;
+  }
+    .loader:before,
+    .loader:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 38%;
+      left: 46%;
+      width: inherit;
+      height: inherit;
+      border-radius: 50%;
+      transform: rotateX(70deg);
+      animation: 1s spin linear infinite;
+    }
+    .loader:after {
+      color: red;
+      transform: rotateY(70deg);
+      animation-delay: .4s;
+    }
+
+  @keyframes rotate {
+    0% {
+      transform: translate(-50%, -50%) rotateZ(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotateZ(360deg);
+    }
+  }
+
+  @keyframes rotateccw {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+
+  @keyframes spin {
+    0%,
+    100% {
+      box-shadow: .2em 0px 0 0px currentcolor;
+    }
+    12% {
+      box-shadow: .2em .2em 0 0 currentcolor;
+    }
+    25% {
+      box-shadow: 0 .2em 0 0px currentcolor;
+    }
+    37% {
+      box-shadow: -.2em .2em 0 0 currentcolor;
+    }
+    50% {
+      box-shadow: -.2em 0 0 0 currentcolor;
+    }
+    62% {
+      box-shadow: -.2em -.2em 0 0 currentcolor;
+    }
+    75% {
+      box-shadow: 0px -.2em 0 0 currentcolor;
+    }
+    87% {
+      box-shadow: .2em -.2em 0 0 currentcolor;
+    }
+  }

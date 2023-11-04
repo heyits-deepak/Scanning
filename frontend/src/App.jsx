@@ -52,18 +52,22 @@ function App() {
           </div>
         </form>
         {loading ? (
-          <div className="loadingStyle">
-            <div className="spinnerStyle"></div>
-          </div>
+          <span className="loader"></span>
         ) : null}
         {result && (
           <div className="resultStyle">
-            <h2>a Result for {url}</h2>
-            <ul>
+            <div className="url">{url}
+            {/* <div className="url-img">
+            <img src="../images/" alt="" srcset="" />
+            </div>
+             */}
+            </div>
+            <div className="vul"><ul>
               {result.assessment.vulnerabilities.map((vulnerability, index) => (
                 <li key={index}>{vulnerability}</li>
               ))}
-            </ul>
+            </ul></div>
+            <div className="time">time in loading is 2sec</div>
           </div>
         )}
       </div>
