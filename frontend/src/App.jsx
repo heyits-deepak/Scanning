@@ -66,7 +66,8 @@ function App() {
             </div>
              */}
             </div>
-            <div className="vul">
+            <div className="bottom-result">
+             <div className="vul">
               <ul>
                 {result.assessment.vulnerabilities.map(
                   (vulnerability, index) => (
@@ -75,12 +76,17 @@ function App() {
                 )}
               </ul>
             </div>
+           
+            </div>
             <div className="time">
-              <h1>TIME</h1>
+              <img className="time-sand" src="../images/output-onlinegiftools.gif" alt="" srcset="" / >
               <p>
-                <span>2</span> Sec
+                <span> 2</span> Sec
               </p>
             </div>
+            {/* <div className="link">
+              <p>Click here to see </p>
+            </div> */}
           </div>
         )}
       </div>
