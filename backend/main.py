@@ -1,5 +1,5 @@
 import re
-
+from sqli import scan_sql_injection
 import requests
 from bs4 import BeautifulSoup
 from fastapi import FastAPI, HTTPException
@@ -121,6 +121,11 @@ def assess_vulnerabilities(url):
             requests.get(url, verify=True)
         except requests.exceptions.SSLError:
             vulnerabilities.append("SSL Certificate Issue")
+
+        test = scan_sql_injection(url)
+
+        if(test):
+             vulnerabilities.append(test)
 
         if vulnerabilities:
             return {"vulnerabilities": vulnerabilities}
