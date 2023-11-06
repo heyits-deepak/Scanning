@@ -1,94 +1,94 @@
 def prevent_xss():
     # Implement prevention measures for Cross-Site Scripting (XSS)
-    print("XSS Prevention Measures:")
-    print("1. Use proper output encoding.")
-    print("2. Use security libraries like OWASP ESAPI to sanitize input.")
-    print("3. Implement content security policies (CSP).")
+    {"XSS Prevention Measures:",
+    "1. Use proper output encoding.",
+    "2. Use security libraries like OWASP ESAPI to sanitize input.",
+    "3. Implement content security policies (CSP).",}
 
 def prevent_command_injection():
     # Implement prevention measures for Command Injection
-    print("Command Injection Prevention Measures:")
-    print("1. Avoid using user-controlled input in system commands.")
-    print("2. Use proper input validation and sanitization.")
-    print("3. Implement access controls to restrict command execution.")
+    {"Command Injection Prevention Measures:",
+    "1. Avoid using user-controlled input in system commands.",
+    "2. Use proper input validation and sanitization.",
+    "3. Implement access controls to restrict command execution.",}
 
 def prevent_insecure_password_storage():
     # Implement prevention measures for Insecure Password Storage
-    print("Insecure Password Storage Prevention Measures:")
-    print("1. Hash and salt passwords before storage.")
-    print("2. Use strong password policies.")
-    print("3. Protect password databases with proper access controls.")
+    {"Insecure Password Storage Prevention Measures:",
+    "1. Hash and salt passwords before storage.",
+    "2. Use strong password policies.",
+    "3. Protect password databases with proper access controls.",}
 
 def prevent_csrf():
     # Implement prevention measures for Cross-Site Request Forgery (CSRF)
-    print("CSRF Prevention Measures:")
-    print("1. Use anti-CSRF tokens in forms.")
-    print("2. Implement SameSite cookie attribute.")
-    print("3. Verify the origin and referrer headers in requests.")
+    {"CSRF Prevention Measures:",
+    "1. Use anti-CSRF tokens in forms.",
+    "2. Implement SameSite cookie attribute.",
+    "3. Verify the origin and referrer headers in requests.",}
 
 def prevent_idor():
     # Implement prevention measures for Insecure Direct Object References (IDOR)
-    print("IDOR Prevention Measures:")
-    print("1. Implement proper access controls and authorization checks.")
-    print("2. Use indirect references instead of direct object references.")
-    print("3. Validate and sanitize user input used for object references.")
+    {"IDOR Prevention Measures:",
+    "1. Implement proper access controls and authorization checks.",
+    "2. Use indirect references instead of direct object references.",
+    "3. Validate and sanitize user input used for object references.",}
 
 def prevent_sensitive_data_exposure():
     # Implement prevention measures for Sensitive Data Exposure
-    print("Sensitive Data Exposure Prevention Measures:")
-    print("1. Encrypt sensitive data at rest and in transit.")
-    print("2. Use proper access controls to restrict data access.")
-    print("3. Implement strong authentication and authorization mechanisms.")
+    {"Sensitive Data Exposure Prevention Measures:",
+    "1. Encrypt sensitive data at rest and in transit.",
+    "2. Use proper access controls to restrict data access.",
+    "3. Implement strong authentication and authorization mechanisms.",}
 
 def prevent_security_misconfiguration():
     # Implement prevention measures for Security Misconfiguration
-    print("Security Misconfiguration Prevention Measures:")
-    print("1. Regularly audit and review server and application configurations.")
-    print("2. Follow security best practices and guidelines.")
-    print("3. Remove unnecessary services and components.")
+    {"Security Misconfiguration Prevention Measures:",
+    "1. Regularly audit and review server and application configurations.",
+    "2. Follow security best practices and guidelines.",
+    "3. Remove unnecessary services and components.",}
 
 def prevent_broken_authentication():
     # Implement prevention measures for Broken Authentication
-    print("Broken Authentication Prevention Measures:")
-    print("1. Use strong password policies and enforce password complexity.")
-    print("2. Implement multi-factor authentication (MFA).")
-    print("3. Protect authentication tokens and sessions from theft.")
+    {"Broken Authentication Prevention Measures:",
+    "1. Use strong password policies and enforce password complexity.",
+    "2. Implement multi-factor authentication (MFA).",
+    "3. Protect authentication tokens and sessions from theft.",}
 
 def prevent_insecure_deserialization():
     # Implement prevention measures for Insecure Deserialization
-    print("Insecure Deserialization Prevention Measures:")
-    print("1. Avoid deserializing data from untrusted sources.")
-    print("2. Implement proper input validation and sanitization.")
-    print("3. Use security libraries for safe deserialization.")
+    {"Insecure Deserialization Prevention Measures:",
+    "1. Avoid deserializing data from untrusted sources.",
+    "2. Implement proper input validation and sanitization.",
+    "3. Use security libraries for safe deserialization.",}
 
 def prevent_secure_design():
     # Implement prevention measures for Secure Design
-    print("Secure Design Prevention Measures:")
-    print("1. Follow the principle of least privilege.")
-    print("2. Implement separation of duties and defense in depth.")
-    print("3. Use secure architecture and design patterns.")
+    {"Secure Design Prevention Measures:",
+    "1. Follow the principle of least privilege.",
+    "2. Implement separation of duties and defense in depth.",
+    "3. Use secure architecture and design patterns.",}
 
 def prevent_missing_rate_limiting():
     # Implement prevention measures for Missing Rate Limiting
-    print("Missing Rate Limiting Prevention Measures:")
-    print("1. Implement rate limiting for APIs and sensitive operations.")
-    print("2. Configure request rate limits based on use cases.")
-    print("3. Monitor and log rate-limiting violations.")
+    {"Missing Rate Limiting Prevention Measures:",
+    "1. Implement rate limiting for APIs and sensitive operations.",
+    "2. Configure request rate limits based on use cases.",
+    "3. Monitor and log rate-limiting violations.",}
 
 def prevent_missing_http_security_headers():
     # Implement prevention measures for Missing HTTP Security Headers
-    print("Missing HTTP Security Headers Prevention Measures:")
-    print("1. Implement security headers like X-Frame-Options, X-XSS-Protection, etc.")
-    print("2. Set appropriate content security policies (CSP).")
-    print("3. Regularly audit and validate security headers configurations.")
+    {"Missing HTTP Security Headers Prevention Measures:",
+    "1. Implement security headers like X-Frame-Options, X-XSS-Protection, etc.",
+    "2. Set appropriate content security policies (CSP).",
+    "3. Regularly audit and validate security headers configurations.",}
 
 # Example: Implementation for SQL Injection (Sqli Injection)
 def prevent_sqli_injection():
-    print("SQL Injection Prevention Measures:")
-    print("1. Use parameterized queries or prepared statements.")
-    print("2. Implement input validation and sanitization.")
-    print("3. Escaping user input used in SQL queries.")
-
+    "SQL Injection Prevention Measures:",
+    {"1. Use parameterized queries or prepared statements.",
+    "2. Implement input validation and sanitization.",
+    "3. Escaping user input used in SQL queries.",
+}
 # Replace the following line with your vulnerability detection logic
 detected_vulnerability = "XSS"
 
@@ -119,4 +119,4 @@ elif detected_vulnerability == "Missing HTTP Security Headers":
 elif detected_vulnerability == "Sqli Injection":
     prevent_sqli_injection()
 else:
-    print("No specific prevention measures available for this vulnerability.")
+    "No specific prevention measures available for this vulnerability.",

@@ -4,6 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+
 from prevention import (
     prevent_xss,
     prevent_command_injection,
@@ -82,9 +83,6 @@ def assess_vulnerabilities(url):
             "Insecure Direct Object References (IDOR)": [ r"\buser_id\b=1", r"\bfile\b=../../etc/passwd",
             ],
             "Sensitive Data Exposure": [r"\bpassword\b", r"\bapikey\b", r"\bsecret\b"],
-            "Security Misconfiguration": [r"404\s*Not Found", r"403\s*Forbidden"],
-            "Broken Authentication": [r"\blogin\b", r"authentication\s*failed"],
-            "Insecure Deserialization": [r"phpserialize", r"pickle\.load\("],
             "Security Misconfiguration": [
             r"404\s*Not Found",
             r"403\s*Forbidden",
@@ -112,6 +110,8 @@ def assess_vulnerabilities(url):
             r"\bsecurity\s*policies\b",
             r"\bdata\s*classification\b",
             ],
+            "Broken Authentication": [r"\blogin\b", r"authentication\s*failed"],
+            "Insecure Deserialization": [r"phpserialize", r"pickle\.load\("],
             "Missing Rate Limiting": [r"429\s*Too Many Requests"],
             "Missing HTTP Security Headers": [
                 r"X-Frame-Options",
@@ -126,6 +126,10 @@ def assess_vulnerabilities(url):
             for pattern in patterns:
                 if re.search(pattern, soup.text, re.IGNORECASE):
                     vulnerabilities.append(vulnerability)
+
+            # Append the vulnerability to the list
+        vulnerabilities.append(vulnerability)
+
 # Check if the website uses HTTPS
         if not final_url.startswith("https://"):
             vulnerabilities.append("Not Using HTTPS")
