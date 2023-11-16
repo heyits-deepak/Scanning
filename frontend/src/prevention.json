@@ -1,0 +1,62 @@
+{
+    "XSS": {
+        "1": "Use proper output encoding.",
+        "2": "Use security libraries like OWASP ESAPI to sanitize input.",
+        "3": "Implement content security policies (CSP)."
+    },
+    "Command Injection": {
+        "1": "Avoid using user-controlled input in system commands.",
+        "2": "Use proper input validation and sanitization.",
+        "3": "Implement access controls to restrict command execution."
+    },
+    "Insecure Password Storage": {
+        "1": "Hash and salt passwords before storage.",
+        "2": "Use strong password policies.",
+        "3": "Protect password databases with proper access controls."
+    },
+    "CSRF": {
+        "1": "Use anti-CSRF tokens in forms.",
+        "2": "Implement SameSite cookie attribute.",
+        "3": "Verify the origin and referrer headers in requests."
+    },
+    "IDOR": {
+        "1": "Implement proper access controls and authorization checks.",
+        "2": "Use indirect references instead of direct object references.",
+        "3": "Validate and sanitize user input used for object references."
+    },
+    "Sensitive Data Exposure": {
+        "1": "Encrypt sensitive data at rest and in transit.",
+        "2": "Use proper access controls to restrict data access.",
+        "3": "Implement strong authentication and authorization mechanisms."
+    },
+    "Security Misconfiguration": {
+        "1": "Regularly audit and review server and application configurations.",
+        "2": "Follow security best practices and guidelines.",
+        "3": "Remove unnecessary services and components."
+    },
+    "Broken Authentication": {
+        "1": "Use strong password policies and enforce password complexity.",
+        "2": "Implement multi-factor authentication (MFA).",
+        "3": "Protect authentication tokens and sessions from theft."
+    },
+    "Insecure Deserialization": {
+        "1": "Avoid deserializing data from untrusted sources.",
+        "2": "Implement proper input validation and sanitization.",
+        "3": "Use security libraries for safe deserialization."
+    },
+    "Missing Rate Limiting": {
+        "1": "Implement rate limiting for APIs and sensitive operations.",
+        "2": "Configure request rate limits based on use cases.",
+        "3": "Monitor and log rate-limiting violations."
+    },
+    "Missing HTTP Security Headers": {
+        "1": "Implement security headers like X-Frame-Options, X-XSS-Protection, etc.",
+        "2": "Set appropriate content security policies (CSP).",
+        "3": "Regularly audit and validate security headers configurations."
+    },
+    "SQL Injection": {
+        "1": "Use parameterized queries or prepared statements.",
+        "2": "Implement input validation and sanitization.",
+        "3": "Escaping user input used in SQL queries."
+    }
+}

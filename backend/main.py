@@ -5,6 +5,22 @@ from bs4 import BeautifulSoup
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
+from prevention import (
+    prevent_xss,
+    prevent_command_injection,
+    prevent_insecure_password_storage,
+    prevent_csrf,
+    prevent_idor,
+    prevent_sensitive_data_exposure,
+    prevent_security_misconfiguration,
+    prevent_broken_authentication,
+    prevent_insecure_deserialization,
+    prevent_secure_design,
+    prevent_missing_rate_limiting,
+    prevent_missing_http_security_headers,
+    prevent_sqli_injection
+)
+
 app = FastAPI()
 
 # Allow requests from yopytur React frontend3
@@ -67,9 +83,6 @@ def assess_vulnerabilities(url):
             "Insecure Direct Object References (IDOR)": [ r"\buser_id\b=1", r"\bfile\b=../../etc/passwd",
             ],
             "Sensitive Data Exposure": [r"\bpassword\b", r"\bapikey\b", r"\bsecret\b"],
-            "Security Misconfiguration": [r"404\s*Not Found", r"403\s*Forbidden"],
-            "Broken Authentication": [r"\blogin\b", r"authentication\s*failed"],
-            "Insecure Deserialization": [r"phpserialize", r"pickle\.load\("],
             "Security Misconfiguration": [
             r"404\s*Not Found",
             r"403\s*Forbidden",
@@ -97,6 +110,8 @@ def assess_vulnerabilities(url):
             r"\bsecurity\s*policies\b",
             r"\bdata\s*classification\b",
             ],
+            "Broken Authentication": [r"\blogin\b", r"authentication\s*failed"],
+            "Insecure Deserialization": [r"phpserialize", r"pickle\.load\("],
             "Missing Rate Limiting": [r"429\s*Too Many Requests"],
             "Missing HTTP Security Headers": [
                 r"X-Frame-Options",
@@ -111,6 +126,10 @@ def assess_vulnerabilities(url):
             for pattern in patterns:
                 if re.search(pattern, soup.text, re.IGNORECASE):
                     vulnerabilities.append(vulnerability)
+
+            # Append the vulnerability to the list
+        vulnerabilities.append(vulnerability)
+
 # Check if the website uses HTTPS
         if not final_url.startswith("https://"):
             vulnerabilities.append("Not Using HTTPS")
@@ -126,6 +145,36 @@ def assess_vulnerabilities(url):
 
         if(test):
              vulnerabilities.append(test)
+
+         # Example: Call prevention functions based on detected vulnerabilities
+        detected_vulnerability = "XSS"
+
+        if "XSS" in vulnerabilities:
+            prevent_xss()
+        if "Command Injection" in vulnerabilities:
+            prevent_command_injection()
+        if "Insecure Password Storage" in vulnerabilities:
+            prevent_insecure_password_storage()
+        if "Cross-Site Request Forgery (CSRF)" in vulnerabilities:
+            prevent_csrf()
+        if "Insecure Direct Object References (IDOR)" in vulnerabilities:
+            prevent_idor()
+        if "Sensitive Data Exposure" in vulnerabilities:
+            prevent_sensitive_data_exposure()
+        if "Security Misconfiguration" in vulnerabilities:
+            prevent_security_misconfiguration()
+        if "Broken Authentication" in vulnerabilities:
+            prevent_broken_authentication()
+        if "Insecure Deserialization" in vulnerabilities:
+            prevent_insecure_deserialization()
+        if "Secure Design" in vulnerabilities:
+            prevent_secure_design()
+        if "Missing Rate Limiting" in vulnerabilities:
+            prevent_missing_rate_limiting()
+        if "Missing HTTP Security Headers" in vulnerabilities:
+            prevent_missing_http_security_headers()
+        if "SQL Injection" in vulnerabilities:
+            prevent_sqli_injection()
 
         if vulnerabilities:
             return {"vulnerabilities": vulnerabilities}

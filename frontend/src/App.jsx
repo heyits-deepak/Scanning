@@ -104,7 +104,7 @@ function App() {
                   alt=""
                   srcset=""
                 />
-                <a href="../src/page.html"><button className="click" >CLICK HERE</button></a>
+                <a href="../src/page.html"></a>
               </div>
             )}
           </div>
