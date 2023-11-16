@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+
 *{
     margin: 0px;
     padding: 0px;
@@ -283,3 +285,31 @@ hr{
       box-shadow: .2em -.2em 0 0 currentcolor;
     }
   }
+
+.last{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin: 10px;
+}
+.hand{
+  width: 150px;
+  height: 150px;
+}
+.click{
+  margin-top: -10px;
+  background-color: #0F0F0F;
+  color: #FFF0CE;
+  font-family: 'roboto';
+  font-size: 2rem;
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: 3px solid #FFC436;
+  text-align: center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: red;
+  font-weight: bold;
+  letter-spacing: 3px;
+  cursor: pointer;
+}
