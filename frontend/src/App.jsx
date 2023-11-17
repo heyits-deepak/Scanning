@@ -1,14 +1,17 @@
-import axios from "axios";
+// App.jsx
 import React, { useEffect, useState } from "react";
-import "./App.css";
+import { Link, useNavigate, Routes, Route } from "react-router-dom";
+import axios from "axios";
 import VulSolution from "./VulSolution";
-import prevention from "./prevention.json";
 
+import "./App.css";
 function App() {
   const [url, setUrl] = useState("");
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [timeTaken, setTimeTaken] = useState(0);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setResult(null);
@@ -100,31 +103,15 @@ function App() {
                   alt=""
                   srcSet=""
                 />
-                <a href="../src/page.html">
-                  <button className="click">CLICK HERE</button>
-                </a>
-                <div>
-                  {result.assessment.vulnerabilities.map(
-                    (vulnerability, index) => (
-                      <div key={index}>
-                        {prevention[vulnerability] ? (
-                          <div>
-                            <h3>Prevention for {vulnerability}</h3>
-                            <ul>
-                              {Object.keys(prevention[vulnerability]).map(
-                                (key) => (
-                                  <li key={key}>
-                                    {prevention[vulnerability][key]}
-                                  </li>
-                                )
-                              )}
-                            </ul>
-                          </div>
-                        ) : null}
-                      </div>
-                    )
-                  )}
-                </div>
+                {/* Use navigate function to navigate to the VulSolution component */}
+                <button
+                  className="click"
+                  onClick={() =>
+                    navigate("/vulsolution", { state: { result } })
+                  }
+                >
+                  CLICK HERE
+                </button>
               </div>
             )}
           </div>

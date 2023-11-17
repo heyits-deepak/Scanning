@@ -56,7 +56,7 @@ hr{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 20px;
+    margin: 0px;
 }
 
 .inputStyle {
@@ -226,7 +226,7 @@ hr{
       content: '';
       display: block;
       position: absolute;
-      top: 38%;
+      top: 42%;
       left: 46%;
       width: inherit;
       height: inherit;
@@ -294,8 +294,8 @@ hr{
   margin: 10px;
 }
 .hand{
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 .click{
   margin-top: -10px;
