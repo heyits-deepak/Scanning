@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            /* Remove background image */
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            /* Set the width to 100% of the viewport width */
+            height: 100vh;
+            /* Set the height to 100% of the viewport height */
+            object-fit: cover;
+            /* Maintain aspect ratio and cover the entire viewport */
+            z-index: -1;
+            /* Place the video behind the content */
+        }
+
+        h1 {
+            color: #e3c57e;
+            text-transform: capitalize;
+            font-family: 'roboto';
+            font-size: 5rem;
+            -webkit-text-stroke-width: 3px;
+            -webkit-text-stroke-color: yellow;
+            text-align: center;
+        }
+        hr{
+            width: 45%;
+           margin: 0 auto;
+           height: 5px;
+           background-color: #ebd1d1;
+           border: 1px solid red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <video autoplay loop muted playsinline>
+        <source src="../video/3.mp4" type="video/mp4" />
+    </video>
+    <h1>SOLUTONS</h1>
+   
+</body>
+<Script>
+    
+</Script>
+</html>

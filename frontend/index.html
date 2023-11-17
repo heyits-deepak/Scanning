@@ -39,24 +39,6 @@
         object-fit: cover; /* Maintain aspect ratio and cover the entire viewport */
         z-index: -1; /* Place the video behind the content */
     }
-    .back-img{
-      z-index: -1;
-      position: absolute;
-      opacity: 0.8;
-      top: 55%;
-      left: 8%;
-      white-space: nowrap;
-      animation: moveLeftRight 6s linear infinite;
-      overflow: hidden;
-    }
-    @keyframes moveLeftRight {
-      0%, 100% {
-        transform: translateX(-50%);
-      }
-      50% {
-        transform: translateX(550%);
-      }
-    }
     </style>
   </head>
 

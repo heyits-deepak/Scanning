@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import VulSolution from "./VulSolution";
 import prevention from "./prevention.json";
 
 function App() {
   const [url, setUrl] = useState("");
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [timeTaken, setTimeTaken] = useState(0); // Added state for time
+  const [timeTaken, setTimeTaken] = useState(0);
 
   useEffect(() => {
     setResult(null);
@@ -18,6 +19,7 @@ function App() {
     setLoading(true);
 
     const startTime = new Date(); // Capture start time
+
     try {
       const response = await axios.get("http://localhost:8000/vulnerability", {
         params: { url },
@@ -29,7 +31,7 @@ function App() {
       setLoading(false);
       const endTime = new Date(); // Capture end time
       const timeDiff = (endTime - startTime) / 1000; // Calculate time difference in seconds
-      setTimeTaken(timeDiff); // Update time taken state
+      setTimeTaken(Math.floor(timeDiff)); // Update time taken state without decimal part
     }
   };
 
@@ -70,14 +72,10 @@ function App() {
                 <ul>
                   {result.assessment.vulnerabilities.map(
                     (vulnerability, index) => (
-                      <li key={index}>
-                        {vulnerability}
-                        {console.log(vulnerability)}
-                        {console.log(typeof vulnerability)}
-                      </li>
+                      <li key={index}>{vulnerability}</li>
                     )
                   )}
-                </ul>{" "}
+                </ul>
               </div>
             </div>
             <div className="time">
@@ -85,28 +83,50 @@ function App() {
                 className="time-sand"
                 src="../images/output-onlinegiftools.gif"
                 alt=""
-                srcset=""
+                srcSet=""
               />
               <p>
                 <span>{timeTaken}</span> Sec{" "}
               </p>
             </div>
-            <div>
-              {result.assessment.vulnerabilities.map((vulnerability, index) => (
-                <div key={index}>
-                  {prevention[vulnerability] ? (
-                    <div>
-                      <h3>Prevention for {vulnerability}</h3>
-                      <ul>
-                        {Object.keys(prevention[vulnerability]).map((key) => (
-                          <li key={key}>{prevention[vulnerability][key]}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  ) : null}
+
+            {result.assessment.vulnerabilities.includes(
+              "No Common Vulnerabilities Detected"
+            ) ? null : (
+              <div className="last">
+                <img
+                  className="hand"
+                  src="../images/giphy.gif"
+                  alt=""
+                  srcSet=""
+                />
+                <a href="../src/page.html">
+                  <button className="click">CLICK HERE</button>
+                </a>
+                <div>
+                  {result.assessment.vulnerabilities.map(
+                    (vulnerability, index) => (
+                      <div key={index}>
+                        {prevention[vulnerability] ? (
+                          <div>
+                            <h3>Prevention for {vulnerability}</h3>
+                            <ul>
+                              {Object.keys(prevention[vulnerability]).map(
+                                (key) => (
+                                  <li key={key}>
+                                    {prevention[vulnerability][key]}
+                                  </li>
+                                )
+                              )}
+                            </ul>
+                          </div>
+                        ) : null}
+                      </div>
+                    )
+                  )}
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
           </div>
         )}
       </div>
