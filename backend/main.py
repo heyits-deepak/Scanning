@@ -5,22 +5,6 @@ from bs4 import BeautifulSoup
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
-from prevention import (
-    prevent_xss,
-    prevent_command_injection,
-    prevent_insecure_password_storage,
-    prevent_csrf,
-    prevent_idor,
-    prevent_sensitive_data_exposure,
-    prevent_security_misconfiguration,
-    prevent_broken_authentication,
-    prevent_insecure_deserialization,
-    prevent_secure_design,
-    prevent_missing_rate_limiting,
-    prevent_missing_http_security_headers,
-    prevent_sqli_injection
-)
-
 app = FastAPI()
 
 # Allow requests from yopytur React frontend3
@@ -41,7 +25,7 @@ def assess_vulnerabilities(url):
     try:
         # Check if the URL starts with "https://" or "http://"
         if not (url.startswith("https://") or url.startswith("http://")):
-            # Prepend "https://" to the URL and send a GET request
+            # Prepend "http s://" to the URL and send a GET request
             try:
                 response = requests.get("https://" + url)
                 url = "https://" + url
@@ -114,12 +98,11 @@ def assess_vulnerabilities(url):
             "Insecure Deserialization": [r"phpserialize", r"pickle\.load\("],
             "Missing Rate Limiting": [r"429\s*Too Many Requests"],
             "Missing HTTP Security Headers": [
-                r"X-Frame-Options",
-                r"X-XSS-Protection",
-                r"X-Content-Type-Options",
-                r"Content-Security-Policy",
-            ],
-
+                r"<meta\s*http-equiv=['\"]?X-Frame-Options['\"]?[^>]*>",
+                r"<meta\s*http-equiv=['\"]?X-XSS-Protection['\"]?[^>]*>",
+                r"<meta\s*http-equiv=['\"]?X-Content-Type-Options['\"]?[^>]*>",
+                r"<meta\s*http-equiv=['\"]?Content-Security-Policy['\"]?[^>]*>",
+            ]
         }
 
         for vulnerability, patterns in common_vulnerabilities.items():
@@ -145,36 +128,6 @@ def assess_vulnerabilities(url):
 
         if(test):
              vulnerabilities.append(test)
-
-         # Example: Call prevention functions based on detected vulnerabilities
-        detected_vulnerability = "XSS"
-
-        if "XSS" in vulnerabilities:
-            prevent_xss()
-        if "Command Injection" in vulnerabilities:
-            prevent_command_injection()
-        if "Insecure Password Storage" in vulnerabilities:
-            prevent_insecure_password_storage()
-        if "Cross-Site Request Forgery (CSRF)" in vulnerabilities:
-            prevent_csrf()
-        if "Insecure Direct Object References (IDOR)" in vulnerabilities:
-            prevent_idor()
-        if "Sensitive Data Exposure" in vulnerabilities:
-            prevent_sensitive_data_exposure()
-        if "Security Misconfiguration" in vulnerabilities:
-            prevent_security_misconfiguration()
-        if "Broken Authentication" in vulnerabilities:
-            prevent_broken_authentication()
-        if "Insecure Deserialization" in vulnerabilities:
-            prevent_insecure_deserialization()
-        if "Secure Design" in vulnerabilities:
-            prevent_secure_design()
-        if "Missing Rate Limiting" in vulnerabilities:
-            prevent_missing_rate_limiting()
-        if "Missing HTTP Security Headers" in vulnerabilities:
-            prevent_missing_http_security_headers()
-        if "SQL Injection" in vulnerabilities:
-            prevent_sqli_injection()
 
         if vulnerabilities:
             return {"vulnerabilities": vulnerabilities}
