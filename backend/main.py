@@ -7,17 +7,16 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Allow requests from yopytur React frontend3
+# Allow requests from your React frontend
 origins = ["http://localhost:5173"]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Allow requests from all origins (for testing)
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 
 # Define a function to check for common vulnerabilities and security aspects
@@ -25,8 +24,8 @@ def assess_vulnerabilities(url):
     try:
         # Check if the URL starts with "https://" or "http://"
         if not (url.startswith("https://") or url.startswith("http://")):
-            # Prepend "http s://" to the URL and send a GET request
             try:
+            # Prepend "https://" to the URL and send a GET request
                 response = requests.get("https://" + url)
                 url = "https://" + url
             except requests.exceptions.RequestException:
@@ -49,6 +48,7 @@ def assess_vulnerabilities(url):
         final_url = response.url
         print(response)
         print(response.url)
+
         # Parse the HTML content
         soup = BeautifulSoup(response.text, "html.parser")
 
@@ -105,15 +105,13 @@ def assess_vulnerabilities(url):
             ]
         }
 
+
         for vulnerability, patterns in common_vulnerabilities.items():
             for pattern in patterns:
                 if re.search(pattern, soup.text, re.IGNORECASE):
                     vulnerabilities.append(vulnerability)
 
-            # Append the vulnerability to the list
-        vulnerabilities.append(vulnerability)
-
-# Check if the website uses HTTPS
+        # Check if the website uses HTTPS
         if not final_url.startswith("https://"):
             vulnerabilities.append("Not Using HTTPS")
 
